@@ -1,7 +1,7 @@
 <div class="container">
   <!-- {{gallery}} -->
   <div class="row imageRow" data-ng-repeat="row in gallery">
-    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" data-ng-repeat="image in row" >
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" data-ng-repeat="image in row" data-ng-click="viewImage(image)">
 
         <img data-ng-if="loaded && !image.is_album"  class="img-responsive galleryImage" style="background-image: url({{'http://i.imgur.com/' + image.id + 'm.png'}}); " >
         <img data-ng-if="loaded && image.is_album" style="background-image: url({{'http://i.imgur.com/' + image.cover + 'm.png' }}); " class="img-responsive galleryImage" >

@@ -35,6 +35,7 @@ angular.module('imgurAdvancedApp')
         }
 
         var getImageSrc = function getImageSrc(image) {
+            // console.log('getImageSrc: ', image)
             if (image.is_album && image.cover) {
                 return "http://i.imgur.com/" + image.cover + 'm.png';
             } else if (image.id) {

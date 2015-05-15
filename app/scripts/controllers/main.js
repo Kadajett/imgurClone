@@ -8,7 +8,7 @@
  * Controller of the imgurAdvancedApp
  */
 angular.module('imgurAdvancedApp')
-    .controller('MainCtrl', function($scope, gallery, imageLoader) {
+    .controller('MainCtrl', function($scope, gallery, imageLoader, $state) {
 
         function chunk(arr, size) {
             $scope.gallery = [];
@@ -31,14 +31,16 @@ angular.module('imgurAdvancedApp')
         }
 
 
+
         var init = function init() {
             gallery.query(function(res) {
                 chunk(res, 4);
             })
 
         }
-        $scope.click = function() {
 
+        $scope.viewImage = function (image) {
+          $state.go('gallery.image', {id: image.id, isAlbum: image.is_album})
         }
 
         init();
