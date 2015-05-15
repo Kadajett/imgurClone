@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    {{image.title || album.title}}
+  </div>
+  <div class="panel-body">
+
+    <section data-ng-if="!image.is_album">
+      <img data-ng-if="!image.animated" data-ng-src="{{image.link || placeholerUrl}}" class="img-responsive" >
+      <img data-ng-if="image.animated" data-ng-src="{{image.link  || placeholerUrl}}" class="img-responsive" >
+    </section>
+    <section data-ng-if="album">
+      <div class="row" data-ng-repeat="frame in album.images">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <img data-ng-src="{{frame.link  || 'http://placehold.it/' + frame.width + 'x' + frame.height}}" class="img-responsive" >
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="panel-footer">
+    <p>{{image || album | json}}</p>
+
+  </div>
+</div>
